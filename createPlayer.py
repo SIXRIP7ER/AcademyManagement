@@ -27,7 +27,8 @@ def createPlayer(db, p):
 db = None
 try:
     # connect to database
-    db = psycopg2.connect(dbname="academy", user="postgres")
+    db = psycopg2.connect(
+        dbname="academy", user="postgres", host='192.168.0.137', port='2022', password='postgres')
 
     # Create a player
     pInfo = ["masi", "hashimi", "2002-02-16"]
