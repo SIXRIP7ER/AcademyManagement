@@ -36,8 +36,10 @@ def create_player(p):
         cur.execute(query, [p[0], p[1], p[2]])
         cur.close()
         db.commit()
+        return "created player"
     except Exception as err:
-        print(err)
+        print(err, file=sys.stderr)
+        return str(err)
     finally:
         if db:
             db.close()
