@@ -1,11 +1,13 @@
 # AcademyManagement
 
-# Set up Python3 virtual environemnt
+# docker build:
 
-python3 -m venv venv
-source venv/bin/activate
-pip3 install -r requirements.txt
+docker build -t flaskapp .
 
-# Exit Venv
+# docker run, run container for first time
 
-deactivate
+docker run --name flaskapp-container -p 80:80 -v $(pwd):/code flaskapp
+
+# docker start an existing container
+
+docker start -ai flaskapp-container
