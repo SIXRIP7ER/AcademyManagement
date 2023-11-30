@@ -2,7 +2,7 @@ FROM python:3.10-slim
 
 WORKDIR /code
 
-COPY . .
+# COPY . .
 
 # RUN apt-get update
 # RUN apt-get install -y python3-pip
