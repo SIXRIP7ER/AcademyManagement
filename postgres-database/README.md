@@ -21,3 +21,5 @@ docker run -t -p 5433:5433 -d \
 docker run --rm --name custom_postgres -e POSTGRES_PASSWORD=postgres -p 5434:5434 -d postgres-db
 
 docker exec -it custom_postgres_db psql -U postgres -d academy -f createPlayer.sql
+
+psql -U postgres academy < createPlayer.sql

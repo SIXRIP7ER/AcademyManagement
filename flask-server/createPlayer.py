@@ -7,7 +7,7 @@ def get_players():
     try:
         # connect to database
         db = psycopg2.connect(
-            dbname="academy", user="postgres", host='192.168.0.137', port='2022', password='postgres')
+            dbname="academy", user="postgres", host='192.168.0.137', port='5432', password='postgres')
         players = None
         cur = db.cursor()
         query = "SELECT * FROM Player"
@@ -27,7 +27,7 @@ def create_player(p):
     try:
         # connect to database
         db = psycopg2.connect(
-            dbname="academy", user="postgres", host='192.168.0.137', port='2022', password='postgres')
+            dbname="academy", user="postgres", host='192.168.0.137', port='5432', password='postgres')
         cur = db.cursor()
         query = """
                 INSERT INTO Player VALUES
