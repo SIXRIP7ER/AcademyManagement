@@ -7,23 +7,11 @@ function ListGroup() {
   //   items = [];
   const items3 = items.map((item) => <li key={item}>{item}</li>);
 
-  const returnList = () => {
-    return items.length === 0 ? <p>No Item Found</p> : items3;
-  };
-
-  const returnListIf = () => {
-    if (items.length === 0) {
-      return <p>No Item Found</p>;
-    } else {
-      return items3;
-    }
-  };
-
   return (
     <>
       <h1>List:</h1>
-      {returnList()}
-      {returnListIf()}
+      {items3.length === 0 && <p>No Item Found</p>}
+      {items3.length !== 0 && items3}
     </>
   );
 }
