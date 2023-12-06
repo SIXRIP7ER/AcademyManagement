@@ -1,7 +1,8 @@
 import signal
 import sys
 from json import dumps
-from flask import Flask, request
+from flask import Flask, request, jsonify
+from flask_cors import CORS, cross_origin
 from createPlayer import get_players, create_player
 
 
@@ -22,6 +23,7 @@ def default_handler(err):
 
 
 app = Flask(__name__)
+CORS(app)
 
 
 app.config['TRAP_HTTP_EXCEPTIONS'] = True
@@ -35,8 +37,7 @@ def hello_world():
 
 @app.route("/playerslist", methods=['GET'])
 def handle_players_list():
-    playersList = get_players()
-    return playersList
+    return jsonify({'players': get_players()})
 
 
 @app.route("/createplayer", methods=['POST'])

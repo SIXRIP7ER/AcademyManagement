@@ -3,6 +3,7 @@ import psycopg2
 
 
 def get_players():
+    '''This function retrieves players from database'''
     db = None
     try:
         # connect to database
@@ -23,6 +24,7 @@ def get_players():
 
 
 def create_player(p):
+    '''This function adds a player to the database'''
     db = None
     try:
         # connect to database
@@ -38,8 +40,7 @@ def create_player(p):
         db.commit()
         return "created player"
     except Exception as err:
-        print(err, file=sys.stderr)
-        return str(err)
+        print(err)
     finally:
         if db:
             db.close()
